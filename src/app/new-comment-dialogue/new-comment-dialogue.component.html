@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Create New Post</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content style="width: 100%">
+<mat-form-field appearance="outline" style="width: 100%">
+  <mat-label>Comment</mat-label>
+  <textarea matInput [(ngModel)]="content"></textarea>
+</mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+	<mat-dialog-actions>
+	<button mat-button [mat-dialog-close]="true" (click)="publishComment()">Post</button>
+	<button mat-button mat-dialog-close>Cancel</button>
+	</mat-dialog-actions>
+</div>

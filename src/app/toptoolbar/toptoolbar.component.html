@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" width="100%">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleDrawer()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>MiniBlogger</span>
+  <span class="example-spacer"></span>
+  <button mat-flat-button color="primary" *ngIf="!userIsLoggedIn" (click)="openLoginDialog()">Log In</button>
+  <button mat-flat-button color="primary" *ngIf="!userIsLoggedIn" (click)="openSignupDialog()">Sign Up</button>
+  <button mat-flat-button color="primary" *ngIf="userIsLoggedIn" (click)="logout()">Sign Out</button>
+</mat-toolbar>
+
+
+<button mat-fab color="primary" class="add-button"  *ngIf="userIsLoggedIn" (click)="openNewPostDialog()">
+  <mat-icon>add</mat-icon>
+</button>

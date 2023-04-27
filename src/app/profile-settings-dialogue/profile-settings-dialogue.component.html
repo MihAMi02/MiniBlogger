@@ -1,0 +1,23 @@
+<div mat-dialog-content>
+	<mat-form-field appearance="outline" color="primary">
+		<mat-label>Username</mat-label>
+		<input matInput [(ngModel)]="username" readonly>
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" color="primary">
+		<mat-label>Flair</mat-label>
+		<input matInput [(ngModel)]="flair">
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" color="primary">
+		<mat-label>Image</mat-label>
+		<input matInput [(ngModel)]="image">
+	</mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+	<mat-dialog-actions>
+	<button mat-button [mat-dialog-close]="true" (click)="updateUser()">Confirm Changes</button>
+	<button mat-button mat-dialog-close>Cancel</button>
+	</mat-dialog-actions>
+</div>

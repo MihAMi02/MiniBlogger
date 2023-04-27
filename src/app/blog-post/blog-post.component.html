@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+		<img mat-card-avatar [src]="user.image">
+	</div>
+    <mat-card-title>{{user.username}}</mat-card-title>
+    <mat-card-subtitle>{{user.flair}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="post.image" *ngIf="hasPhoto">
+  <mat-card-content>
+    <p [ngClass]="{ 'too-long': isContentTooLong(post.content)}" *ngIf="!isExpanded">{{ post.content | slice:0:500 }}</p>
+    <p [ngClass]="{ 'too-long': isContentTooLong(post.content)}" *ngIf="isExpanded">{{ post.content }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button *ngIf="isTooLong && !isExpanded" (click)="showMore()" color="primary">Show More</button>
+    <button mat-button *ngIf="isTooLong && isExpanded" (click)="showLess()" color="primary">Show Less</button>
+  <span class="example-spacer"></span>
+    <button  mat-icon-button class="example-icon" *ngIf="userIsLoggedIn" (click)="openCommentDialog()"><mat-icon>reply</mat-icon></button>
+    <button  mat-icon-button class="example-icon" *ngIf="!userIsLoggedIn" disabled><mat-icon>reply</mat-icon></button>
+	<!--
+    <button  mat-icon-button class="example-icon" *ngIf="userIsLoggedIn"><mat-icon>thumb_up</mat-icon></button>
+    <button  mat-icon-button class="example-icon" *ngIf="!userIsLoggedIn" disabled><mat-icon>thumb_up</mat-icon></button>
+	-->
+  </mat-card-actions>
+  <mat-divider></mat-divider>
+	<ng-container *ngFor="let comment of comments">
+		<app-comment [comment]="comment" [user]="users[comment.userID]"></app-comment>
+	</ng-container>
+</mat-card>

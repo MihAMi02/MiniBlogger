@@ -1,0 +1,7 @@
+.username-exists .mat-form-field-underline {
+  background-color: red;
+}
+
+.username-exists .mat-form-field-label {
+  color: red;
+}
